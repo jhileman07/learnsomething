@@ -18,10 +18,23 @@ def disasterCode():
         if len(uniquePrimes) == 0:
             uniquePrimes.append(i)
 
+def goodCode():
+    listPrimes = []
+    for i in range (2,1000):
+        current = i
+        uniquePrimes = []
+        prime = True
+        for p in listPrimes:
+            if current%p==0:
+                prime=False
+                uniquePrimes.append(p)
+        if prime:
+            listPrimes.append(current)
+
 # Benchmark the code
 if __name__ == "__main__":
-    benchmark_code = "disasterCode()"
-    setup_code = "from __main__ import disasterCode"
+    benchmark_code = "goodCode()"
+    setup_code = "from __main__ import goodCode"
 
     # Measure the execution time of disasterCode function
     times = []
