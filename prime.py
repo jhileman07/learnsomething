@@ -1,7 +1,8 @@
 import timeit
+import math
 
 def disasterCode():
-    for i in range (2,2500):
+    for i in range (2,1000):
         uniquePrimes = []
         currentPrime = i
         for j in range (2,i):
@@ -18,10 +19,40 @@ def disasterCode():
         if len(uniquePrimes) == 0:
             uniquePrimes.append(i)
 
+def goodCode():
+    listPrimes = []
+    for i in range (2,1000):
+        current = i
+        uniquePrimes = []
+        prime = True
+        for p in listPrimes:
+            if current%p==0:
+                prime=False
+                uniquePrimes.append(p)
+        if prime:
+            listPrimes.append(current)
+
+def bestCode():
+    is_prime = [True] * (1000)
+    is_prime[0] = is_prime[1] = False
+    listPrimes=[2]
+
+    for p in range(3, int(math.sqrt(1000)) + 1, 2):
+        if is_prime[p]:
+            for multiple in range(p * p, 1000, 2*p):
+                is_prime[multiple] = False
+
+    for i in range(3,1000,2):
+        if is_prime[i]:
+            listPrimes.append(i)
+
+
+
+
 # Benchmark the code
 if __name__ == "__main__":
-    benchmark_code = "disasterCode()"
-    setup_code = "from __main__ import disasterCode"
+    benchmark_code = "bestCode()"
+    setup_code = "from __main__ import bestCode"
 
     # Measure the execution time of disasterCode function
     times = []
