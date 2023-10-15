@@ -97,3 +97,4 @@ void HackathonBot::takeAction(float price) {
     }
   }
 };
+

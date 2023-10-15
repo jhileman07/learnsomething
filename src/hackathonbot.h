@@ -17,11 +17,11 @@ public:
 private:
     double balance;
     bool holding=0;
-    int upStreak=0;
-    int downStreak=0;
     void buy();
     void sell();
     std::vector<float> q;
+    int upStreak=0;
+    int downStreak=0;
 };
 
 #endif //LEARNSOMETHING_HACKATHONBOT_H
